@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const inventorySchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
     user: { 
         type: SchemaTypes.ObjectId, 
         ref: "User",
@@ -13,4 +13,4 @@ const inventorySchema = new mongoose.Schema({
     timestamp: {type: String, required: true},
 })
 
-module.exports = mongoose.model('Inventory',inventorySchema);
+module.exports = mongoose.model('Orders',orderSchema);
