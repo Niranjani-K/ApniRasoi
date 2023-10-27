@@ -22,13 +22,13 @@ const userSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    // allergies: [{
-    //     type: String,
-    // }],
-    // past_orders: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Orders'
-    // }]
+    allergies: [{
+        type: String,
+    }],
+    past_orders: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Orders'
+    }]
 })
 
 userSchema.statics.isThisEmailInUse = async function (email) {
