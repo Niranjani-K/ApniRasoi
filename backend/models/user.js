@@ -23,7 +23,8 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     allergies: [{
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Inventory'
     }],
     past_orders: [{
         type: mongoose.Schema.Types.ObjectId,
