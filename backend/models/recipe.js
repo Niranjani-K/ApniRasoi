@@ -10,7 +10,7 @@ const recipeSchema = new mongoose.Schema({
         id: { type: String, required: true },
     },
     user: {
-        type: SchemaTypes.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
     instruction: { 
