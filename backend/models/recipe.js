@@ -17,16 +17,12 @@ const recipeSchema = new mongoose.Schema({
         type: String, 
         required: true, 
     },
-    ingredients: {
-        ingrediennt: {
-            type: SchemaTypes.ObjectId,
-            ref: "Inventory"
-        },
-        quantity: {
-            type: String,
-        },
-        required: true
-    },
+    ingredients: [
+            {
+                type: SchemaTypes.ObjectId,
+                ref: "Inventory"
+            }
+    ],
     category: {
         type: String
     }
