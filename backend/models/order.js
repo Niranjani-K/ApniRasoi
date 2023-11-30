@@ -3,14 +3,22 @@ const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
     user: { 
-        type: SchemaTypes.ObjectId, 
+        type:  mongoose.Schema.Types.ObjectId, 
         ref: "User",
         required: true 
     },
     recipe: {
-        type: SchemaTypes.ObjectId, ref: "Recipe",required: true
+        type:  mongoose.Schema.Types.ObjectId, ref: "Recipe",required: true
     },
-    timestamp: {type: String, required: true},
+    timestamp: {type: Date, required: true},
+    status: {
+        type: Number,
+        default: 0
+    },
+    rating: {
+        type: Number,
+        default: 0
+    }
 })
 
-module.exports = mongoose.model('Orders',orderSchema);
+module.exports = mongoose.model('Order',orderSchema);

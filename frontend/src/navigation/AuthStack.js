@@ -5,7 +5,7 @@ import SignUpScreen from '../screens/SignUpScreen';
 import DrawerNavigator from "./DrawerNavigator";
 import {useLogin} from "../context/LoginProvider";
 import HomeScreen from '../screens/HomeScreen';
-
+import AdminNavigator from './AdminNavigation';
 const Stack = createNativeStackNavigator();
 
 const AuthStack = () => {
@@ -21,7 +21,16 @@ const AuthStack = () => {
 };
 
 const MainNavigator = () => {
-  const { isLoggedIn } = useLogin();
-  return isLoggedIn ? <DrawerNavigator /> : <AuthStack />;
+  const { isLoggedIn, isAdmin} = useLogin();
+  if(isLoggedIn){
+    if(isAdmin) {
+      return <AdminNavigator />
+    }else{
+      return <DrawerNavigator />
+    }
+  }else{
+    return <AuthStack />
+  }
+ 
 };
 export default MainNavigator;

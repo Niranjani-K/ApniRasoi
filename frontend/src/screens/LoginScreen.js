@@ -26,7 +26,7 @@ const LoginScreen = () => {
       password: '',
     });
 
-    const { fetchUser } = useLogin();
+    const { fetchUser,setIsLoggedIn } = useLogin();
 
     const [error, setError] = useState('');
 
@@ -49,6 +49,7 @@ const LoginScreen = () => {
         if (res.data.success) {
           setUserInfo({ email: '', password: '' });
           await AsyncStorage.setItem('token',res.data.token);
+          setIsLoggedIn(true);
           fetchUser();
         }else{
           setError(res.data.message);

@@ -57,7 +57,7 @@ const CustomDrawer = props => {
     </View>
   )
 }
-const DrawerNavigator = () =>{
+const AdminNavigator = () =>{
   return(
     <Drawer.Navigator 
     screenOptions={{
@@ -73,24 +73,18 @@ const DrawerNavigator = () =>{
     backBehavior="history"
      drawerContent={props => <CustomDrawer {...props} />}
     >
-      <Drawer.Screen component={HomeScreen} name='Home' />
-      <Drawer.Screen component={PastOrdersScreen} name='PastOrders' />
-      <Drawer.Screen component={MenuScreen} name='Menu'  options={{
-                  drawerItemStyle: { display: 'none' }
-        }} />
+     
+      <Drawer.Screen component={PastOrdersScreen} name='Current Orders'/>
+      <Drawer.Screen component={PastOrdersScreen} name='Past Orders'/>
+
+      <Drawer.Screen component={MenuScreen} name='Menu' />
         <Drawer.Screen component={MenuDishDetails} name='MenuDishDetails'  options={{
                   drawerItemStyle: { display: 'none' }
         }} />
 
-      <Drawer.Screen component={OrderPlacedScreen} name='OrderPlaced'  options={{
-                  drawerItemStyle: { display: 'none' }
-        }} />
-
-<Drawer.Screen component={OrderStatusScreen} name='OrderStatus'  options={{
-                  drawerItemStyle: { display: 'none' }
-        }} />
-
-    <Drawer.Screen component={BasketScreen} name='Open Basket'/>
+        <Drawer.Screen component={OrderStatusScreen} name='OrderStatus'  options={{
+                        drawerItemStyle: { display: 'none' }
+                }} />
 
     </Drawer.Navigator>
     
@@ -98,4 +92,4 @@ const DrawerNavigator = () =>{
 }
 
 
-export default DrawerNavigator;
+export default AdminNavigator;

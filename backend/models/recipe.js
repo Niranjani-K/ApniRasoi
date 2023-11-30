@@ -3,15 +3,17 @@ const mongoose = require('mongoose');
 const recipeSchema = new mongoose.Schema({
     title : {
         type: String,
-        required: true
+        required: true,
+        required: true, 
     },
     image: {
         url: { type: String},
-        id: { type: String, required: true },
+        id: { type: String },
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+        required: true, 
     },
     instruction: { 
         type: String, 
@@ -25,7 +27,13 @@ const recipeSchema = new mongoose.Schema({
     ],
     category: {
         type: String
-    }
+    },
+    macronutrients: {
+        proteins: Number, // in grams
+        carbohydrates: Number, // in grams
+        fats: Number, // in grams
+        calories : Number, // in kilocalories (kcal)
+    },
 }
 
 );

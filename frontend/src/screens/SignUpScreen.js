@@ -45,14 +45,13 @@ const SignUpScreen = () => {
     const {height} = useWindowDimensions();
 
     const onSubmit = async() => {
-
       try {
         const res = await client.post('/register', { ...userInfo });
-
         if (res.data.success) {
             const loginRes = await client.post('/login', {email:userInfo.email,password:userInfo.password});
             if (loginRes.data.success) {
               await AsyncStorage.setItem('token',loginRes.data.token);
+              setIsLoggedIn(true);
               fetchUser();
             }
             else{

@@ -15,7 +15,8 @@ const CustomButton = (props) => {
 const styles = StyleSheet.create({
     container :{
         backgroundColor: '#FFC800',
-        width: '100%',
+        width: '75%',
+        height: 50,
         padding: 15,
         marginVertical: 10,
 
