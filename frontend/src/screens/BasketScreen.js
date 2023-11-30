@@ -36,6 +36,7 @@ const BasketScreen = () =>{
         cartItems.map((cartItem) => {
             const orderPlace = client.post('/orderplace',{recipeId: cartItem._id, userId: profile._id })
         })
+        
         navigation.navigate("OrderPlaced")
     }
 

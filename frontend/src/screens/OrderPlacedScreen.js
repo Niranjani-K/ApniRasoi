@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import {
-  SafeAreaView ,
+  View ,
   StyleSheet,
   Text,
 } from 'react-native';
@@ -15,14 +15,14 @@ const OrderPlacedScreen = () => {
     const navigation = useNavigation();
 
     useEffect(()=> {
-        setTimeout(()=> navigation.navigate('Home'), 100)
+        setTimeout(()=> navigation.navigate('Home'), 300)
     },[])
 
     return(
-        <SafeAreaView style={styles.root}>
+        <View style={styles.root}>
             <Image source={OrderPlacedImg} style={styles.logo} />
             <Text style = {styles.title}>Order Placed</Text>
-        </SafeAreaView>
+        </View>
     );
 }
 const styles = StyleSheet.create({
@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     logo: {
-        width: '70%',
+        width: 200,
         maxWidth: 400,
-        height: 180,
+        height: 200,
         maxHeight: 400
     },
     title: {

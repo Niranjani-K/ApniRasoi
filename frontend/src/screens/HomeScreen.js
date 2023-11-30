@@ -17,7 +17,7 @@ const HomeScreen = (props) => {
     }
 
     const onCreateOrder = () =>{
-
+        navigation.navigate("CreateOrder")
     }
     return(
         <SafeAreaView>

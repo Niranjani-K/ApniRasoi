@@ -17,7 +17,12 @@ const Ingredient = (props) => {
             style={{ height: 40, width: 40, borderRadius: 200 / 2}}
             /> */}
           <Text style={[styles.label,{textAlign:'left'}]}>{props.name}</Text>
-          {/* <Text style={[styles.label,{textAlign:'right'}]}>{props.quantity}</Text> */}
+          {props.quantity ? 
+           ( <Text style={[styles.label,{textAlign:'right'}]}>{props.quantity}</Text>
+            )
+           : 
+           (<Text></Text>)
+           }
         </View>
         </View>
     );

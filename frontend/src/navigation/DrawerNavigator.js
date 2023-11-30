@@ -1,4 +1,4 @@
-import {View,Text,TouchableOpacity} from 'react-native';
+import {View,Text,TouchableOpacity,Pressable} from 'react-native';
 import { createDrawerNavigator,DrawerContentScrollView,DrawerItemList } from '@react-navigation/drawer';
 import HomeScreen from '../screens/HomeScreen';
 import PastOrdersScreen from '../screens/PastOrdersScreen';
@@ -8,13 +8,17 @@ import MenuDishDetails from '../screens/MenuDishDetails';
 import OrderPlacedScreen from '../screens/OrderPlacedScreen';
 import BasketScreen from '../screens/BasketScreen';
 import OrderStatusScreen from '../screens/OrderStatusScreen';
+import CreateOrder from "../screens/CreateOrder";
+import { useNavigation } from '@react-navigation/native';
+import PersonalizeOptionScreen from '../screens/PersonalizeOptionScreen';
+import ChatScreen from '../screens/ChatScreen';
 
 const Drawer = createDrawerNavigator();
 
 const CustomDrawer = props => {
 
   const { Logout, profile } = useLogin();
-
+  const navigation = useNavigation();
 
   return (
     <View style={{ flex: 1 }}>
@@ -29,11 +33,14 @@ const CustomDrawer = props => {
             marginBottom: 20,
           }}
         >
+         
           <View>
             <Text  style= {{fontWeight: 'bold'}}>{profile.name}</Text>
             <Text style= {{fontWeight: 'bold'}}>{profile.email}</Text>
           </View>
           </View>
+          
+
           <DrawerItemList {...props} />
       </DrawerContentScrollView>
 
@@ -78,9 +85,19 @@ const DrawerNavigator = () =>{
       <Drawer.Screen component={MenuScreen} name='Menu'  options={{
                   drawerItemStyle: { display: 'none' }
         }} />
+
+<Drawer.Screen component={CreateOrder} name='CreateOrder'  options={{
+                  drawerItemStyle: { display: 'none' }
+        }} />
         <Drawer.Screen component={MenuDishDetails} name='MenuDishDetails'  options={{
                   drawerItemStyle: { display: 'none' }
         }} />
+
+    <Drawer.Screen component={PersonalizeOptionScreen} name='Personalize'  options={{
+                  
+        }} />
+
+        
 
       <Drawer.Screen component={OrderPlacedScreen} name='OrderPlaced'  options={{
                   drawerItemStyle: { display: 'none' }
@@ -91,6 +108,7 @@ const DrawerNavigator = () =>{
         }} />
 
     <Drawer.Screen component={BasketScreen} name='Open Basket'/>
+    <Drawer.Screen component={ChatScreen} name='Our Bot'  />
 
     </Drawer.Navigator>
     
